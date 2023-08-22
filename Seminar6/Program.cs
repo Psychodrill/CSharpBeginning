@@ -1,11 +1,11 @@
-﻿using System;
+﻿// using System;
 
-namespace Seminar6
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+// namespace Seminar6
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
             //Console.WriteLine("Hello World!");
 
             //Task 1 Напишите программу, которая перевернёт одномерный
@@ -140,6 +140,6 @@ namespace Seminar6
             }
 
 
-        }
-    }
-}
+//         }
+//     }
+// }
