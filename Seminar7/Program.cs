@@ -96,10 +96,10 @@ void ReplaceEvenElements(int[,] array)
 int SumOfMainDiag(int[,] array)
 {
     int result =0;
-    for(int i=0, j=0; i<array.GetLength(0);i++, j++){
+    for(int i=0; i<array.GetLength(0);i++){
        // for(int j=0; j<array.GetLength(1); j++){
            // if(i==j){
-                result+=array[i,j];
+                result+=array[i,i];
             //}
        // }
     }
