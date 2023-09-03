@@ -217,7 +217,7 @@ void Show3dArray(int[,,]array)
         Console.WriteLine();
     }
 }
-
+/*
 Console.Write("Input x measure: ");
 int xMeasure = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input y measure: ");
@@ -238,7 +238,93 @@ else{
     Console.Write("Filling array is impossible, because its size greater than count of possible values");
 }
 
-
+*/
 
 
 //Task 62. Напишите программу, которая заполнит спирально любой двумерный массив.
+
+void ArraySpiralFilling(int[,] array)
+{
+    int count =0;
+    int startI=0;
+    int startJ=1;
+    array[0,0]=1;
+    for (int number= array[0,0]; number<array.GetLength(0)*array.GetLength(1);) 
+    {
+        int helix = count%4;
+        int spiralCount = count/4;
+        if(helix==0)
+        {
+            for (int j=startJ; j<array.GetLength(1)-spiralCount; j++)
+            {
+                number++;
+                array[startI,j]= number;
+               
+            }
+            startI+=1;
+            startJ=array.GetLength(1)-1-spiralCount;
+
+        }
+        if(helix==1)
+        {
+            for (int i= startI; i<array.GetLength(0)-spiralCount; i++)
+            {
+                number++;
+                array[i,startJ]= number;
+            }
+            startI= array.GetLength(0)-1-spiralCount;
+            startJ-=1;
+
+        }
+        if(helix==2)
+        {
+
+            for (int j = startJ; j>=spiralCount; j--)
+            {
+                number++;
+                array[startI,j]= number;
+            }
+            startI-=1;
+            startJ=spiralCount;
+        }
+        
+        if(helix==3)
+        {
+            for (int i=startI;i>spiralCount; i--)
+            {
+                number++;
+                array[i, startJ]=number;
+            }
+            startI=spiralCount+1;
+            startJ+=1;
+        }
+        count++;
+
+    }
+    
+}
+void Show2dArrayIn2Digits(int[,]array)
+{
+    for(int i=0; i<array.GetLength(0); i++)
+    {
+        for(int j=0; j <array.GetLength(1); j++)
+        {
+            if(array[i,j]<10)
+            {
+                Console.Write("0"+array[i,j]+ " ");
+            }
+            else
+            Console.Write(array[i,j]+ " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.Write("Input a quantity of rows: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input a quantity of columns: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+int [,] emptyArray = new int[rows,columns];
+ArraySpiralFilling(emptyArray);
+Show2dArrayIn2Digits(emptyArray);
