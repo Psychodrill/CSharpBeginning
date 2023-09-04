@@ -41,3 +41,27 @@ Console.Write($"Result sum is {sum}");
 */
 //Task 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 
+int AckermannFunction(int a, int b, int result=0)
+{
+    if(a==0)
+    {
+        result = b+1;
+    }
+    if(b==0)
+    {
+        result= AckermannFunction(a-1, 1, result);
+    }
+    if(a>0 && b>0)
+    {
+       
+        result = AckermannFunction(a-1, AckermannFunction(a, b-1, result), result);
+    }
+
+    return result;
+}
+Console.Write("Input number a: ");
+int numberA = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input number b: ");
+int numberB = Convert.ToInt32(Console.ReadLine());
+int result = AckermannFunction(numberA, numberB);
+Console.Write($"Result  is {result}");
